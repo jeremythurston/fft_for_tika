@@ -8,9 +8,9 @@ plt.rcParams["font.size"] = 11
 
 # Data parameters
 filename = "Book1 2.csv"
-t_s = 20 # Time step [fs]
-t_start = 150 # Start of temporal window [fs]
-t_end = 1000 # End of temporal window [fs]
+t_s = 20  # Time step [fs]
+t_start = 150  # Start of temporal window [fs]
+t_end = 1000  # End of temporal window [fs]
 
 
 if __name__ == "__main__":
@@ -29,8 +29,8 @@ if __name__ == "__main__":
     plt.show()
 
     # Zoom in on temporal window
-    amplitude = amplitude[np.logical_and(time>t_start, time<t_end)]
-    time = time[np.logical_and(time>t_start, time<t_end)]
+    amplitude = amplitude[np.logical_and(time > t_start, time < t_end)]
+    time = time[np.logical_and(time > t_start, time < t_end)]
 
     # Center signal at amplitude = 0
     # amplitude = amplitude - np.mean(amplitude)
@@ -54,9 +54,9 @@ if __name__ == "__main__":
     N = len(X)
     n = np.arange(N)
     T = N / s_r
-    freq = n/T
+    freq = n / T
 
-    fq = freq * 1e-12 # [THz]
+    fq = freq * 1e-12  # [THz]
     fq_amplitude = np.abs(X)
 
     # Normalize
@@ -67,12 +67,12 @@ if __name__ == "__main__":
     plt.title("FFT")
     plt.xlabel("Frequency (THz)")
     plt.ylabel("Amplitude")
-    plt.xlim(5, np.max(fq)/2)
+    plt.xlim(5, np.max(fq) / 2)
     plt.ylim(0, 0.005)
 
     # Save figure
     plt.savefig("fft_figure.jpg", dpi=500)
-    
+
     plt.show()
 
     # Save data
